@@ -39,7 +39,7 @@ create
 create
   (n)-[:IS]->(g), (g)-[:IS]->(i),
   (n)-[:WRITTEN_IN]->(l),
-  (n)-[:RELATES_TO]->(a)-[:FROM]->(c)<-[:FROM]-(n),
+  (n)-[:RELATES_TO]->(a)-[:FROM]->(c)&lt;-[:FROM]-(n),
   (n)-[:HAS]->(cy),
   (n)-[:HAS]->(rest),
   (n)-[:HAS]->(libs),
@@ -50,7 +50,7 @@ create
   (libs)-[:AVAILABLE_IN]->(ruby),
   (libs)-[:AVAILABLE_IN]->(php),
   (libs)-[:AVAILABLE_IN]->(tr)
-foreach (x in [1,2,3,4]| create (a)<-[:HATES]-(Hater {name:"Hater"})-[:HATES]->(c))
+foreach (x in [1,2,3,4]| create (a)&lt;-[:HATES]-(Hater {name:"Hater"})-[:HATES]->(c))
 return n,g,i,l,cy,rest,libs
 </pre>
 
@@ -65,4 +65,8 @@ create
   (s1)-[:FOLLOWS_BY]->(s2),
   (s2)-[:FOLLOWS_BY]->(s3)
 return n
+</pre>
+
+<pre>
+match (n) optional match ()-[r]->(n) delete n
 </pre>
