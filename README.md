@@ -68,5 +68,9 @@ return n
 </pre>
 
 <pre>
-match (n) optional match ()-[r]->(n) delete n
+optional match ()-[r1]->(n), (n)-[r2]->() delete r1,r2
+</pre>
+
+<pre>
+match (n) delete n
 </pre>
