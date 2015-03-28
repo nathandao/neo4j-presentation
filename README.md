@@ -67,6 +67,8 @@ create
 return n
 </pre>
 
+Cleanup:
+
 <pre>
 match ()-[r]->() delete r
 </pre>
